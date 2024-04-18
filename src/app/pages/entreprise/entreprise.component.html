@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title" style="font-size: xx-large;">Liste des Offres</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <!-- Champ de recherche -->
+        <form class="form-inline">
+          <div class="form-group mr-2">
+            <input type="text" class="form-control" placeholder="Recherche..." [(ngModel)]="searchText" (input)="rechercherOffres()">
+          </div>
+          <button type="button" class="btn btn-primary">Rechercher</button>
+        </form>
+
+        <!-- Formulaire pour ajouter une nouvelle offre -->
+        <form (submit)="ajouterOffre()">
+          <div class="form-group">
+            <label for="title">Titre:</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="nouvelleOffre.title" name="title">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" [(ngModel)]="nouvelleOffre.description" name="description"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+
+        <!-- Tableau pour afficher les offres existantes -->
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Titre</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let offre of offres">
+              <td>{{ offre.idOffre }}</td>
+              <td>{{ offre.title }}</td>
+              <td>{{ offre.description }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="supprimerOffre(offre.idOffre)">Supprimer</button>
+              </td>
+              <td>
+                <button class="btn btn-success" (click)="modifierOffre(offre)">Modifier</button>
+              </td>
+              <td>
+                <button class="btn btn-primary" (click)="partagerOffre(offre)">Partager</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- Formulaire pour modifier une offre -->
+        <div *ngIf="offreAModifier">
+          <form (submit)="updateOffre()">
+            <div class="form-group">
+              <label for="title">Titre:</label>
+              <input type="text" class="form-control" id="title" [(ngModel)]="offreAModifier.title" name="title">
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea class="form-control" id="description" [(ngModel)]="offreAModifier.description" name="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.col -->
+</div>

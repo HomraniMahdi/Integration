@@ -1,0 +1,72 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" routerLink="/create-post1"> Create New Post</button>
+  <button mat-raised-button color="primary" routerLink="/view-all"> View All Posts</button>
+  <button mat-raised-button color="primary" routerLink="/search-by-name"> Search</button>
+  
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+<div *ngIf="postData" class="card-container">
+    <mat-card>
+      <img src="assets/images/esprit.jpg" height="300px" class="post-img" alt="Image" />
+      <mat-card-content>
+        <mat-card-title>{{postData.name}}</mat-card-title>
+        <mat-card-subtitle>Posted By: {{postData.postedBy}} | Posted On: {{postData.date | date:'medium'}}</mat-card-subtitle>
+        <p>{{postData.content}}</p>
+        <br />
+        <mat-chip-set>
+          <mat-chip *ngFor="let tag of postData.tags">{{tag}}</mat-chip>
+        </mat-chip-set>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="likePost()">
+          {{postData.likeCount}}
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" style="margin-left: 5px;">
+          {{postData.viewCount}}
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="Comment-card">
+        <mat-card-content>
+            <h4>Publish Your Comment</h4>
+            <div>
+                <form [formGroup]="commentForm">
+                <mat-form-field appearance="fill">
+                 <mat-label>Content</mat-label>  
+                  <textarea matInput formControlName="content"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Posted By</mat-label>  
+                     <input matInput formControlName="postedBy">
+                   </mat-form-field>
+                   <button mat-raised-button (click)="publishComment()" color="primary" style="float: right;"[disabled]="!commentForm.valid"> Publish Comment</button>
+            </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+<div style="margin-top: 10px;">
+    <h4>Comments</h4>
+    <mat-card style="margin-top: 10px;" *ngFor="let comment of comments">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-subtitle>{{comment.createdAt | date:'medium'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>{{ comment.content}}
+    </mat-card-content>
+</mat-card>
+
+</div>
+  </div>
+  

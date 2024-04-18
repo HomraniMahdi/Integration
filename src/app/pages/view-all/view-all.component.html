@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" routerLink="/create-post1"> Create New Post</button>
+  <button mat-raised-button color="primary" routerLink="/view-all"> View All Posts</button>
+  <button mat-raised-button color="primary" routerLink="/search-by-name"> Search</button>
+  
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="card-containre" *ngFor="let item of allPosts">
+  <mat-card>
+      <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <mat-card-subtitle>Posted By:{{ item.postedBy }} | Posted On:{{ item.date | date:'medium' }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-grid-list cols="5">
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <img src="assets/images/esprit.jpg" class="post-img" />
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="1" >
+              <mat-card-content>
+                  {{item.content.length> 600? item.content.substr(0 , 600) +'...': item.content}}
+              </mat-card-content>
+          </mat-grid-tile>
+      </mat-grid-list>
+         
+      <hr>
+      <mat-card-actions>
+      <button mat-raised-butoon color="primary">{{item.likeCount}}<mat-icon>favorite</mat-icon></button>
+       <button mat-raised-butoon color="primary" style="margin-left: 5px;">{{item.viewCount}}
+      <mat-icon>remove_red_eye</mat-icon></button>
+      <button mat-raised-button color="primary" style="margin-left: 5px;" routerLink="/view-post/{{item.id}}"> View Post</button>
+      </mat-card-actions>
+  </mat-card>
+  
+  </div>

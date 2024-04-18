@@ -1,0 +1,12 @@
+.center-card{
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 30px;
+}
+mat-form-filed{
+    width: 100%;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }

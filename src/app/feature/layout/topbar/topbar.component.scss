@@ -1,0 +1,18 @@
+/* This rule will change the background color of the topbar to red */
+.layout-topbar {
+    background-color: rgb(160, 4, 4);
+}
+
+
+/* If you want to target only the logout button specifically */
+.layout-topbar-menu .layout-topbar-button:has(i.pi-power-off) {
+    /* Set the text color to white */
+    color: white;
+}
+
+/* Target the menu button with the pi pi-bars icon */
+.layout-menu-button:has(i.pi-bars) {
+    /* Set the text color to white */
+    color: white;
+}
+

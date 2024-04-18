@@ -1,0 +1,11 @@
+/* Ajoutez ce style dans votre fichier CSS global ou local */
+span.demande-importee {
+    color: green;
+    font-weight: bold;
+  }
+  /* timeline-component.component.css */
+.closed-step {
+  background-color: red; /* Ajoutez d'autres styles si nécessaire */
+}
+
+  

@@ -1,0 +1,66 @@
+<div class="container d-flex justify-content-center mt-50 mb-50">
+  <div class="row">
+    <div *ngFor="let event of events" class="col-md-12">
+      <div class="card blog-horizontal">
+        <div class="card-body">
+          <div class="card-img-actions mr-sm-3 mb-3">
+            <img src="assets\dist\img\téléchargement.jpg" class="img-fluid card-img" alt="Nom de l'image">
+          </div>
+          <div class="mb-3">
+            <h5 class="d-flex font-weight-semibold flex-nowrap my-1">
+              <a href="#" class="text-default mr-2" data-abc="true">{{ event.titre }}</a>
+              <span class="text-danger-400 ml-auto">Gratuit</span>
+            </h5>
+            <ul class="list-inline list-inline-dotted text-muted mb-0">
+              <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Date:</a></li>
+              <li class="list-inline-item">{{ event.dateEvt | date:'yyyy-MM-dd' }}</li>
+            </ul>
+          </div>
+          <p>{{ event.description }}</p>
+          <a href="#" data-abc="true">[Plus de details]</a>
+          <div>
+          <div class="mt-2 mt-sm-0">
+            <div class="dropdown">
+              <button class="btn btn-danger dropdown-toggle" type="button" id="shareDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share"></i> Partager 
+              </button>
+              <div class="dropdown-menu" aria-labelledby="shareDropdown">
+                <button class="dropdown-item" (click)="shareOnFacebook(event)">
+                  <i class="fab fa-facebook"></i> Partager sur Facebook
+                </button>
+                <button class="dropdown-item" (click)="shareOnInstagram(event)">
+                  <i class="fab fa-instagram"></i> Partager sur Instagram
+                </button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+       
+        <div class="card-footer d-sm-flex justify-content-sm-between align-items-sm-center">
+          <ul class="list-inline list-inline-dotted mb-0">
+            <li class="list-inline-item">
+              <i class="fa fa-calendar-check-o mr-1"></i>
+              <i class="fa fa-calendar mr-1"></i>
+              {{ event.dateEvt | date:'yyyy-MM-dd' }}
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <span class="text-muted ml-1">(12)</span>
+            </li>
+          </ul>
+          <div class="mt-2 mt-sm-0">
+            <button class="like-button" (click)="like(event)"><i class="fa fa-thumbs-up"></i> Like</button>
+            <button class="dislike-button" (click)="dislike(event)"><i class="fa fa-thumbs-down"></i> Dislike</button>
+            <button class="course-button" (click)="participer(event)"><i class="fa fa-check font-size-base mr-1"></i> Participer</button>
+          </div>
+          
+          <div *ngIf="event.message" class="alert alert-success mt-3">{{ event.message }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

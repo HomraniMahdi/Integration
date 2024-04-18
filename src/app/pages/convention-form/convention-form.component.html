@@ -1,0 +1,15 @@
+<!-- convention-form.component.html -->
+<div *ngIf="conventionDetails">
+    <h2>Formulaire de Convention</h2>
+    <p>Nom: {{ conventionDetails.nom }}</p>
+    <p>Prénom: {{ conventionDetails.prenom }}</p>
+    <p>CIN: {{ conventionDetails.cin }}</p>
+    <p>Période de stage: {{ conventionDetails.periodeStage }}</p>
+    <p>Nom de l'entreprise: {{ conventionDetails.nomEntreprise }}</p>
+    <!-- Ajoutez d'autres champs du formulaire de convention -->
+    <button (click)="validateConvention(conventionDetails.cin)">Valider</button>
+    <button (click)="rejectConvention(conventionDetails.cin)">Refuser</button>
+
+    
+  </div>
+  

@@ -1,0 +1,118 @@
+<div class="app-candidature-front">
+  <div class="candidature-options">
+    <div class="manual-application">
+      <h3>Postuler Facilement</h3>
+      <p>Choisissez une option pour renseigner automatiquement vos informations de candidature.</p>
+      <p>Vous pouvez également remplir votre dossier manuellement.</p>
+      <p>Chargez votre CV ou déposez-le ici (Facultatif)</p>
+      <input type="file" (change)="selectFile($event)" /><br>
+      <button (click)="uploadFile()">
+        Postuler
+      </button>
+    </div>
+    <div class="linkedin-application">
+      <h3>Postuler avec LinkedIn</h3>
+      <button (click)="postulerAvecLinkedIn()">
+        Apply with LinkedIn
+        <i class="fab fa-linkedin"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="candidature-front">
+  <div class="timeline">
+    <div class="step" [ngClass]="{'completed': currentStep >= 1}">Étape 1</div>
+    <div class="step" [ngClass]="{'completed': currentStep >= 2}">Étape 2</div>
+    <div class="step" [ngClass]="{'completed': currentStep >= 3}">Étape 3</div>
+  </div>
+
+  <form [formGroup]="candidatureForm" (ngSubmit)="submitCandidature()">
+    <div *ngIf="currentStep === 1">
+      <h2>Étape 1 : Informations personnelles</h2>
+      <div>
+        <label for="cin">CIN :</label>
+        <input type="text" id="cin" formControlName="cin" required>
+      </div>
+     <div>
+          <label for="nom">Nom :</label>
+          <input type="text" id="nom" formControlName="nom" required>
+        </div>
+        <div>
+          <label for="prenom">Prénom :</label>
+          <input type="text" id="prenom" formControlName="prenom" required>
+        </div>
+        <div>
+          <label for="email">Email :</label>
+          <input type="email" id="email" formControlName="email" required>
+        </div>
+        <div>
+          <label for="confirmEmail">Confirmer Email :</label>
+          <input type="email" id="confirmEmail" formControlName="confirmEmail" required>
+        </div>
+        <div>
+          <label for="address">Adresse :</label>
+          <input type="text" id="address" formControlName="address" required>
+        </div>
+        <div>
+          <label for="numTel">Numéro de téléphone :</label>
+          <input type="text" id="numTel" formControlName="numTel" required>
+        </div>
+    </div>
+    <div *ngIf="currentStep === 2">
+      <h2>Étape 2 : Expérience professionnelle</h2>
+      <div>
+        <label for="titre">Titre :</label>
+        <input type="text" id="titre" formControlName="titre" required>
+      </div>
+       <div>
+          <label for="societe">Société :</label>
+          <input type="text" id="societe" formControlName="societe" required>
+        </div>
+        <div>
+          <label for="experienceDescription">Description de l'expérience :</label>
+          <textarea id="experienceDescription" formControlName="experienceDescription" required></textarea>
+        </div>
+        <div>
+          <label for="experienceDu">Début de l'expérience :</label>
+          <input type="date" id="experienceDu" formControlName="experienceDu" required>
+        </div>
+        <div>
+          <label for="experienceAu">Fin de l'expérience :</label>
+          <input type="date" id="experienceAu" formControlName="experienceAu" required>
+        </div>
+    </div>
+    <div *ngIf="currentStep === 3">
+      <h2>Étape 3 : Formation</h2>
+      <div>
+        <label for="etablissement">Établissement :</label>
+        <input type="text" id="etablissement" formControlName="etablissement" required>
+      </div>
+      <div>
+          <label for="specialisation">Spécialisation :</label>
+          <input type="text" id="specialisation" formControlName="specialisation" required>
+        </div>
+        <div>
+          <label for="niveauEtude">Niveau d'étude :</label>
+          <input type="text" id="niveauEtude" formControlName="niveauEtude" required>
+        </div>
+        <div>
+          <label for="competence">Compétence :</label>
+          <input type="text" id="competence" formControlName="competence" required>
+        </div>
+        <div>
+            <label for="formationDu">Début de la formation :</label>
+            <input type="date" id="formationDu" formControlName="formationDu" required>
+          </div>
+          <div>
+            <label for="formationAu">Fin de la formation :</label>
+            <input type="date" id="formationAu" formControlName="formationAu" required>
+          </div>
+    </div>
+    
+    <div class="buttons">
+      <button type="button" (click)="prevStep()" *ngIf="currentStep > 1">Précédent</button>
+      <button type="button" (click)="nextStep()" *ngIf="currentStep < 3">Suivant</button>
+      <button type="submit" *ngIf="currentStep === 3" [disabled]="candidatureForm.invalid">Ajouter Candidature</button>
+    </div>
+  </form>
+</div>

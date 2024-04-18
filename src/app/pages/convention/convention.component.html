@@ -1,0 +1,28 @@
+<!-- convention-form.component.html -->
+<div>
+  <h2>Formulaire de Convention</h2>
+  <form (submit)="submitForm()">
+    <!-- Ajoutez vos champs de formulaire ici -->
+    <label for="cin">CIN:</label>
+    <input type="text" id="cin" [(ngModel)]="cin" name="cin" required>
+
+    <label for="nomEntreprise">Nom de l'Entreprise:</label>
+    <input type="text" id="nomEntreprise" [(ngModel)]="nomEntreprise" name="nomEntreprise" required>
+
+    <label for="periodeStage">Période de Stage:</label>
+    <input type="date" id="periodeStage" [(ngModel)]="periodeStage" name="periodeStage" required>
+
+    <button type="submit">Soumettre</button>
+  </form>
+
+  <!-- Section pour afficher les détails de la confirmation -->
+  <div *ngIf="confirmationDetails">
+    <h3>Confirmation</h3>
+    <p><strong>Cin:</strong> {{ confirmationDetails.cin }}</p>
+    <p><strong>Nom:</strong> {{ confirmationDetails.nom }}</p>
+    <p><strong>Prénom:</strong> {{ confirmationDetails.prenom }}</p>
+    <p><strong>Nom de l'Entreprise:</strong> {{ confirmationDetails.nomEntreprise }}</p>
+    <p><strong>Période de Stage:</strong> {{ confirmationDetails.periodeStage }}</p>
+    <!-- Ajoutez d'autres champs si nécessaire -->
+  </div>
+</div>

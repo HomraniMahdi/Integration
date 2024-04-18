@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Participation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="submit.php" method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" required>
+
+        <label for="ecole">École :</label>
+        <input type="text" id="ecole" name="ecole" required>
+
+        <label for="niveau">Niveau d'étude :</label>
+        <select id="niveau" name="niveau">
+            <option value="Bac">Bac</option>
+            <option value="Licence">Licence</option>
+            <option value="Master">Master</option>
+            <option value="Doctorat">Doctorat</option>
+        </select>
+
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <input type="submit" value="Envoyer">
+
+    </form>
+    <div class="container">
+        <div class="page-header text-center">
+            <h1>Credit Card Payment Gateway</h1>
+        </div>
+        <!-- Credit Card Payment Form - START -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <h3 class="text-center">Payment Details</h3>
+                                <div class="inlineimage"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group"> <label>CARD NUMBER</label>
+                                            <div class="input-group"> <input type="tel" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-7 col-md-7">
+                                        <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                    </div>
+                                    <div class="col-xs-5 col-md-5 pull-right">
+                                        <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" /> </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-xs-12"> <button class="btn btn-success btn-lg btn-block">Confirm Payment</button> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

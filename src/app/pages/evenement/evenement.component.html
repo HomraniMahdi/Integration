@@ -1,0 +1,67 @@
+<h1>Liste des événements</h1>
+<input type="text" [(ngModel)]="searchTitle" placeholder="Rechercher par titre">
+<button (click)="searchEvents()">Rechercher</button>
+<button (click)="exportToPDF()">Export PDF</button>
+
+
+<table  id="events-table">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Salle</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of listEvents">
+      <td>{{ event.titre }}</td>
+      <td>{{ event.description }}</td>
+      <td>{{ event.dateEvt | date:'yyyy-MM-dd' }}</td>
+      <td>{{ event.salle }}</td>
+      
+      <td>
+        <button (click)="selectEvent(event)">Modifier</button>
+        <button (click)="deleteEvent(event.idEvenement)">Supprimer</button>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<form *ngIf="!isUpdate" (submit)="saveEvent()">
+    <label>Titre: </label>
+    <input type="text" [(ngModel)]="selectedEvent.titre" name="titre" required minlength="3">
+    <!-- Le champ titre est obligatoire et doit avoir une longueur minimale de 3 caractères -->
+  
+    <label>Description: </label>
+    <input type="text" [(ngModel)]="selectedEvent.description" name="description" required minlength="3">
+    <!-- Le champ description est obligatoire et doit avoir une longueur minimale de 3 caractères -->
+  
+    <label>Date: </label>
+    <input type="date" [(ngModel)]="selectedEvent.dateEvt" name="dateEvt" required [min]="todayDate()">
+    <!-- Le champ dateEvt est obligatoire et la date minimale est la date d'aujourd'hui -->
+  
+    <label>Salle: </label>
+   
+    <input type="text" [(ngModel)]="selectedEvent.salle" name="salle" required minlength="3">
+    <div *ngIf="!isValidEvent()" class="error-message">La salle est requise et doit comporter au moins 3 caractères.</div>
+    <!-- Le champ salle est obligatoire et doit avoir une longueur minimale de 3 caractères -->
+    <button type="submit">Ajouter un evenement</button>
+  
+  </form>
+  
+  <form *ngIf="isUpdate" (submit)="saveEvent()">
+    <label>Titre: </label>
+    <input type="text" [(ngModel)]="selectedEvent.titre" name="titre" required minlength="3">
+    <label>Description: </label>
+    <input type="text" [(ngModel)]="selectedEvent.description" name="description" required minlength="3">
+    <label>Date: </label>
+    <input type="date" [(ngModel)]="selectedEvent.dateEvt" name="dateEvt" required [min]="todayDate()">
+    <label>Salle: </label>
+    <input type="text" [(ngModel)]="selectedEvent.salle" name="salle" required minlength="3">
+    <button type="submit">Modifier</button>
+  </form>

@@ -1,0 +1,37 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden" >
+  <div class="flex flex-column align-items-center justify-content-center">
+    <div
+      style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, red 10%, rgba(110, 110, 120, 05) 30%);">
+      <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px">
+        <div class="text-center mb-5">
+          <span class="text-600 font-medium">Activate your Account</span>
+        </div>
+        <form [formGroup]="form">
+          <label class="block text-800 text-xl font-medium mb-3" >Confirmation key</label>
+          <input type="text" placeholder="Confirmation key" formControlName="confirmationKey" pInputText
+                 class="w-full md:w-30rem mb-4" style="padding:1rem">
+          <div class="flex align-items-center justify-content-between mb-5 gap-5">
+            <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: rgb(19, 124, 3)"
+               routerLink="">Back to login page</a>
+          </div>
+          <button pButton pRipple [disabled]="!form.valid" (click)="activateAccount()" label="Send" 
+                  class="w-full p-3 text-xl red-button" ></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <p-dialog header="Response" [(visible)]="display" [modal]="true" [style]="{width: '450px'}" [baseZIndex]="10000"
+            [draggable]="false" [resizable]="false">
+    <p class="m-0">{{message}}</p>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="display=false" label="Close" class="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>
+
+
+
+
+
+
+

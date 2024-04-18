@@ -1,0 +1,12 @@
+<h3 style="text-align: center; font-family: fantasy; font-size: xxx-large;">Timeline</h3>
+<mat-horizontal-stepper (selectionChange)="onStepSelectionChange($event)">
+  <mat-step label="Demande de Stage" [completed]="isStageDemandeCompleted()">
+    <!-- Contenu de l'étape de demande de stage -->
+  </mat-step>
+  <mat-step label="Convention" [completed]="isConventionCompleted()">
+    <!-- Contenu de l'étape de convention -->
+  </mat-step>
+  <mat-step label="Journal de Stage">
+    <!-- Contenu de l'étape de journal de stage -->
+  </mat-step>
+</mat-horizontal-stepper>

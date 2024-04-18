@@ -1,0 +1,39 @@
+<form [formGroup]="entretienForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="dateEntretien">Date de l'entretien:</label>
+    <input type="date" formControlName="dateEntretien" id="dateEntretien" required>
+  </div>
+  <div>
+    <label for="heure">Heure de l'entretien:</label>
+    <input type="text" formControlName="heure" id="heure" required>
+  </div>
+  <div>
+    <label for="lien">Lien de l'entretien:</label>
+    <input type="text" formControlName="lien" id="lien" required>
+  </div>
+  <div>
+    <button type="submit" [disabled]="entretienForm.invalid">Affecter l'entretien</button>
+  </div>
+</form>
+
+<h2>Liste des entretiens</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Heure</th>
+      <th>Lien</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entretien of entretiens">
+      <td>{{ entretien.dateEntretien | date:'yyyy-MM-dd'}}</td>
+      <td>{{ entretien.heure }}</td>
+      <td>{{ entretien.lien }}</td>
+      <td><button (click)="supprimerEntretien(entretien.idEntretien)">
+        <i class="fas fa-trash"></i> Supprimer
+      </button></td>
+    </tr>
+  </tbody>
+</table>

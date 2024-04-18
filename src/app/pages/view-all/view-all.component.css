@@ -1,0 +1,26 @@
+.card-container{
+    margin: 16px;
+    max-width: 10%;
+    padding-bottom: 30px;
+
+}
+mat-card{
+    padding: 10px;
+}
+.example-header-image{
+    background-image: url('https://material.angular.io/assets/img/examples/shiba2.jpg');
+    background-size: cover;
+}
+mat-card-footer{
+    margin-left: 20px;
+}
+.post-img{
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    margin-top: 15px;
+
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }

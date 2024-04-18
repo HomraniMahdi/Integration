@@ -1,0 +1,24 @@
+<!-- etudiant-new.component.html -->
+<h3>Create Etudiant</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" id="nom" required [(ngModel)]="etudiant.nom" name="nom">
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prenom</label>
+      <input type="text" class="form-control" id="prenom" required [(ngModel)]="etudiant.prenom" name="prenom">
+    </div>
+    <div class="form-group">
+      <label for="cin">CIN</label>
+      <input type="text" class="form-control" id="cin" required [(ngModel)]="etudiant.cin" name="cin">
+    </div>
+    <div class="form-group">
+      <label for="numero">Numero</label>
+      <input type="text" class="form-control" id="numero" required [(ngModel)]="etudiant.numero" name="numero">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

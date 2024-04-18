@@ -1,0 +1,111 @@
+.candidature-container {
+  max-width: 800px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.left-button,
+.right-button {
+  padding: 10px;
+  background-color: #FF3636;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: sticky;
+  top: 10px;
+  z-index: 1;
+}
+
+.left-button {
+  left: 10px;
+}
+
+.right-button {
+  right: 100px;
+}
+
+/* Ajoutez une marge entre les deux boutons */
+.left-button + .right-button {
+  margin-left: 10px;
+}
+
+h2 {
+  color: #333;
+}
+
+button {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #FF3636;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #FF3636;
+  color: white;
+}
+
+button i {
+  margin-right: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+.candidature-container {
+  width: 100%;
+}
+
+.candidature-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.epinglee-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.candidature-epinglee {
+  width: 250px; 
+  border: 2px solid #FF3636; 
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #ffffff; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.candidature-epinglee p,
+.candidature-epinglee h3 {
+  margin: 0;
+}
+
+.candidature-epinglee p:first-child {
+  margin-bottom: 10px;
+}
+.candidature-epinglee {
+  position: relative; 
+}
+
+.candidature-epinglee i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #FF3636; 
+  font-size: 20px;
+}

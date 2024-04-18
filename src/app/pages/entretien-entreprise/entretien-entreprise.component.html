@@ -1,0 +1,43 @@
+<p>entretien-entreprise works!</p>
+<div class="container">
+    <h2>Liste des Entretiens</h2>
+    
+    <!-- Bouton pour exporter vers Excel -->
+    <button type="button" class="btn btn-info" (click)="exportToExcel()">Exporter vers Excel</button>
+
+    <!-- Formulaire pour ajouter un nouvel entretien -->
+    <form (submit)="ajouterEntretien()">
+      <div class="form-group">
+        <label for="dateEntretienR">Date Debut:</label>
+        <input type="date" class="form-control" id="dateEntretienR" [ngModel]="nouvelleEntretien.dateEntretienR | date:'yyyy-MM-dd'" (ngModelChange)="nouvelleEntretien.dateEntretienR = $event" name="dateEntretienR" required>
+      </div>
+      <div class="form-group">
+        <label for="dateEntretienT">Date Fin:</label>
+        <input type="date" class="form-control" id="dateEntretienT" [ngModel]="nouvelleEntretien.dateEntretienT | date:'yyyy-MM-dd'" (ngModelChange)="nouvelleEntretien.dateEntretienT = $event" name="dateEntretienT" required>
+      </div>
+      <button type="submit" class="btn btn-success">Ajouter</button>
+    </form>
+    
+    <!-- Tableau pour afficher les entretiens existants -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date Debut</th>
+          <th>Date Fin</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entretien of entretiens">
+          <td>{{ entretien.idEntretien}}</td>
+          <td>{{ entretien.dateEntretienR | date:'yyyy/MM/dd' }}</td>
+          <td>{{ entretien.dateEntretienT | date:'yyyy/MM/dd' }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="supprimerEntretien(entretien.idEntretien)">Supprimer</button>
+            <button class="btn btn-success" (click)="modifierEntretien(entretien)">Modifier</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,53 @@
+<div class="candidature-container">
+  <div class="epinglee-container">
+    <div *ngFor="let candidature of candidaturesEpingles" class="candidature-epinglee">
+      <i class="fas fa-thumbtack"></i> 
+      <p>ID: {{ candidature.idCandidature }}</p>
+      <h3>{{ candidature.nom }} {{ candidature.prenom }}</h3>
+      <p>Email: {{ candidature.email }}</p>
+      <p>CIN: {{ candidature.cin }}</p>
+      <a [routerLink]="['/entretien']">Affecter Entretien</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="candidature-container">
+  <h2>Liste des Candidatures</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>CIN</th>
+        <th>Email</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Téléphone</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidature of filteredCandidatures">
+        <td>{{ candidature.idCandidature }}</td>
+        <td>{{ candidature.cin }}</td>
+        <td>{{ candidature.email }}</td>
+        <td>{{ candidature.nom }}</td>
+        <td>{{ candidature.prenom }}</td>
+        <td>{{candidature.numTel}}</td>
+        <td>{{ candidature.status }}</td>
+        <td>
+          <button (click)="modifierCandidature(candidature.idCandidature)">
+            <a routerLink="/modify-cand/{{candidature.idCandidature}}">
+              <i class="fas fa-edit"></i> Modifier
+            </a>
+          </button>
+          <button (click)="supprimerCandidature(candidature.idCandidature)">
+            <i class="fas fa-trash"></i> Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
